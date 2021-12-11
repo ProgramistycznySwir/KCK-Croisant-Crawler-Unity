@@ -20,6 +20,8 @@ public class Hero : MonoBehaviour
         
     }
 
+    // bool isAnimating_Movement
+
     // Update is called once per frame
     void Update()
     {
@@ -35,6 +37,10 @@ public class Hero : MonoBehaviour
 
     public void Move(Croisant_Crawler.Data.Vector2Int dirrection)
     {
+        // DEBUG:
+        stats.TakeDamage(5);
+
+        
         var nextPos = stats.position + dirrection;
         var newRoom = GameMaster.currentFloorData.rooms[stats.position].connections
                 .Where(room => room.position == nextPos)
@@ -44,5 +50,8 @@ public class Hero : MonoBehaviour
         
         stats.position = newRoom.position;
         transform.position = GameMaster.currentFloor._grid.CellToLocal(stats.position.ToUnityVector3Int());
+
     }
+
+    // public void Animate_Movement()
 }
