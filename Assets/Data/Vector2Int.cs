@@ -38,11 +38,5 @@ namespace Croisant_Crawler.Data
             => !(left == right);
         public static Vector2Int operator *(Vector2Int vector, float scalar)
             => new Vector2Int((int)(vector.x * scalar), (int)(vector.y * scalar));
-
-
-        public static explicit operator UnityEngine.Vector2Int(Vector2Int vector)
-            => new UnityEngine.Vector2Int(vector.x, vector.y);
-        public static explicit operator Vector2Int(UnityEngine.Vector2Int vector)
-            => new Vector2Int(vector.x, vector.y);
     }
 }

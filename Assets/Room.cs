@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Croisant_Crawler.Data;
+using Croisant_Crawler.UnityExtensions;
 
 public class Room : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class Room : MonoBehaviour
     public void Init(Croisant_Crawler.Core.Room room)
     {
         this.room = room;
-        transform.localPosition = Floor.grid.CellToLocal((UnityEngine.Vector3Int)((UnityEngine.Vector2Int)room.position));
+        transform.localPosition = Floor.grid.CellToLocal(room.position.ToUnityVector3Int());
 
         foreach(Croisant_Crawler.Core.Room connection in room.connections)
         {

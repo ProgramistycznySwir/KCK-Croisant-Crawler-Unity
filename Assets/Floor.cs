@@ -7,26 +7,28 @@ public class Floor : MonoBehaviour
 {
     Croisant_Crawler.Core.Floor floor;
 
-    public UnityEngine.Vector2Int mapSize = new UnityEngine.Vector2Int(6, 6);
-    public int roomCount = 24;
-
     public Room roomPrefab;
 
     public static Grid grid;
     public Grid _grid;
 
-    // Start is called before the first frame update
-    void Awake()
+    public Floor Init(Croisant_Crawler.Core.Floor floor)
     {
-        grid = _grid;
+        this.floor = floor;
 
-        floor = new(mapSize: (Croisant_Crawler.Data.Vector2Int)mapSize,
-                level: 1,
-                roomCount: roomCount);
         foreach(Croisant_Crawler.Core.Room room in floor.rooms.Values)
         {
             Object.Instantiate(roomPrefab).GetComponent<Room>().Init(room);
         }
+
+        // Method chain pattern.
+        return this;
+    }
+
+    // Start is called before the first frame update
+    void Awake()
+    {
+        grid = _grid;
         // floor
     }
 
