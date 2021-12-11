@@ -15,7 +15,7 @@ public class GameMaster : MonoBehaviour
     public UnityEngine.Vector2Int mapSize = new UnityEngine.Vector2Int(6, 6);
     public int roomCount = 24;
 
-    void Awake()
+    void Start()
     {
         currentFloorData = new(
                 mapSize: mapSize.ToData(),
@@ -26,13 +26,8 @@ public class GameMaster : MonoBehaviour
                 .GetComponent<Floor>()
                 .Init(currentFloorData);
 
-        hero.transform.position = currentFloor._grid.CellToLocal(currentFloorData.startRoomPos.ToUnityVector3Int());
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        hero.stats.position = currentFloorData.startRoomPos;
+        hero.transform.position = currentFloor._grid.CellToLocal(hero.stats.position.ToUnityVector3Int());
     }
 
     // Update is called once per frame
