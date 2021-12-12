@@ -8,6 +8,7 @@ public class Floor : MonoBehaviour
     Croisant_Crawler.Core.Floor floor;
 
     public Room roomPrefab;
+    public Dictionary<Croisant_Crawler.Data.Vector2Int, Room> rooms = new();
 
     public static Grid grid;
     public Grid _grid;
@@ -18,7 +19,11 @@ public class Floor : MonoBehaviour
 
         foreach(Croisant_Crawler.Core.Room room in floor.rooms.Values)
         {
-            Object.Instantiate(roomPrefab).GetComponent<Room>().Init(room);
+            rooms.Add(
+                    room.position,
+                    Object.Instantiate(roomPrefab, transform)
+                            .GetComponent<Room>()
+                            .Init(room));
         }
 
         // Method chain pattern.

@@ -12,7 +12,7 @@ public class Room : MonoBehaviour
     public Croisant_Crawler.Core.Room room;
     public Connections connections;
 
-    public void Init(Croisant_Crawler.Core.Room room)
+    public Room Init(Croisant_Crawler.Core.Room room)
     {
         this.room = room;
         transform.localPosition = Floor.grid.CellToLocal(room.position.ToUnityVector3Int());
@@ -30,6 +30,8 @@ public class Room : MonoBehaviour
                 connections += Connections.Right;
         }
         renderer.sprite = GetSprite(connections);
+
+        return this;
     }
 
     // Start is called before the first frame update
@@ -65,5 +67,35 @@ public class Room : MonoBehaviour
             0b1011 => spriteSheet[15],
             _ => spriteSheet[0]
         };
+    }
+
+    public Room Explore()
+    {
+        if(newRoom.IsExplored is true)
+            return this;
+        // Show room:
+        gameObject.SetActive(true);
+        room.IsExplored = true;
+
+        if(room.IsDangerous)
+        {
+            GameMaster.StartFight();
+
+            // Map_View.DisplayPrompt("You've encountered enemies in this room, press [enter] to start combat.");
+            // Map_View.AlertPlayer(player, "[ENTER]");
+            // Wait();
+
+            // Map_View.SetActive(false);
+            // FightResult fightResult = Fight_Game.StartFight(player, newRoom);
+            // if(fightResult is FightResult.TPK)
+            // {
+            //     Summary(player);
+            //     return;
+            // }
+            // newRoom.IsDangerous = false;
+            // Map_View.ReRenderMapView(floor, player);
+        }
+
+        return this;
     }
 }
