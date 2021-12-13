@@ -10,8 +10,8 @@ public class GameMaster : MonoBehaviour
 
     public Transform mapView__;
     public static Transform mapView { get; private set; }
-    public Transform fightView__;
-    public static Transform fightView { get; private set; }
+    // public Transform fightView__;
+    // public static Transform fightView { get; private set; }
 
     public static Croisant_Crawler.Core.Floor currentFloorData { get; private set; }
     public static Floor currentFloor { get; private set; }
@@ -24,7 +24,7 @@ public class GameMaster : MonoBehaviour
     void Awake()
     {
         mapView = mapView__;
-        fightView = fightView__;
+        // fightView = fightView__;
     }
 
     void Start()
@@ -53,12 +53,12 @@ public class GameMaster : MonoBehaviour
     public static void StartFight()
     {
         mapView.gameObject.SetActive(false);
-        fightView.gameObject.SetActive(true);
+        // fightView.gameObject.SetActive(true);
     }
 
     public static void EndFight()
     {
         mapView.gameObject.SetActive(true);
-        fightView.gameObject.SetActive(false);
+        // fightView.gameObject.SetActive(false);
     }
 }
