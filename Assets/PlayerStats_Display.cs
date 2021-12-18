@@ -16,7 +16,7 @@ public class PlayerStats_Display : MonoBehaviour
     void Start()
     {
         hero.stats.HP_OnChange += UpdateHP;
-
+        UpdateHP(hero.stats);
     }
 
     public void UpdateHP(Stats stats)
