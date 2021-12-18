@@ -9,7 +9,8 @@ public class Controller : MonoBehaviour {
 
 	void Start () {
 		animator = GetComponent<Animator> ();
-		animator.SetTrigger(idle2);
+		//animator.SetTrigger(idle2);
+		idle2();
 	}
 	
 	void Update () {
@@ -40,7 +41,7 @@ public class Controller : MonoBehaviour {
 		animator.SetTrigger ("skill");
 	}
 
-		public void idle2() {
+	public void idle2() {
 		animator.SetTrigger ("idle2");
 	}
 }
