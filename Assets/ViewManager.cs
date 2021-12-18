@@ -42,8 +42,6 @@ public class ViewManager : MonoBehaviour
             else
                 View_Open(View.HeroTab);
         }
-
-
     }
     public void View_Open(View view)
     {
@@ -55,6 +53,12 @@ public class ViewManager : MonoBehaviour
 
         View_Render();
     }
+    public void View_Open_Map()
+        => View_Open(View.Map);
+    public void View_Open_HeroTab()
+        => View_Open(View.HeroTab);
+    public void View_Open_Fight()
+        => View_Open(View.Fight);
     public void View_Return()
     {
         if(viewStack.Count <= 1)

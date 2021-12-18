@@ -47,12 +47,14 @@ public class GameMaster : MonoBehaviour
 
     public static void StartFight()
     {
+        ViewManager.instance.View_Open(ViewManager.View.Fight);
         // mapView.gameObject.SetActive(false);
         // fightView.gameObject.SetActive(true);
     }
 
     public static void EndFight()
     {
+        ViewManager.instance.View_Open(ViewManager.View.Map);
         // mapView.gameObject.SetActive(true);
         // fightView.gameObject.SetActive(false);
     }
