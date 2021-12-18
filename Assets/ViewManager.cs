@@ -16,9 +16,15 @@ public class ViewManager : MonoBehaviour
     public Transform heroTabView__;
     public Transform fightView__;
 
+
+    public enum View { Map, HeroTab, Fight }
+    private readonly HashSet<View> rootViews = new() { View.Map, View.Fight };
+    private readonly Stack<(View view, Transform transform)> viewStack = new();
+
+    public (View view, Transform transform) CurrentView => viewStack.Peek();
+
     void Awake()
     {
-        Debug.Log(instance);
         views.Add(View.Map, mapView__);
         views.Add(View.HeroTab, heroTabView__);
         views.Add(View.Fight, fightView__);
@@ -27,13 +33,21 @@ public class ViewManager : MonoBehaviour
         View_Render();
     }
 
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            if(CurrentView.view == View.HeroTab)
+                View_Return();
+            else
+                View_Open(View.HeroTab);
+        }
 
-    public enum View { Map, HeroTab, Fight }
-    private readonly HashSet<View> rootViews = new() { View.Map, View.Fight };
-    private readonly Stack<(View view, Transform transform)> viewStack = new();
+
+    }
     public void View_Open(View view)
     {
-        if(view == viewStack.Peek().view)
+        if(view == CurrentView.view)
             return;
         if(rootViews.Contains(view))
             viewStack.Clear();
@@ -51,8 +65,8 @@ public class ViewManager : MonoBehaviour
     }
     private void View_Render()
     {
-        foreach(var view in viewStack)
-            view.transform.gameObject.SetActive(false);
+        foreach(var view in views.Values)
+            view.gameObject.SetActive(false);
         viewStack.Peek().transform.gameObject.SetActive(true);
     }
 }
