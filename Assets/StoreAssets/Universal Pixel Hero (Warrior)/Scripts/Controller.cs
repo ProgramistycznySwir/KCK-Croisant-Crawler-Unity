@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +9,7 @@ public class Controller : MonoBehaviour {
 
 	void Start () {
 		animator = GetComponent<Animator> ();
+		animator.SetTrigger(idle2);
 	}
 	
 	void Update () {
@@ -37,5 +38,9 @@ public class Controller : MonoBehaviour {
 
 	public void skill() {
 		animator.SetTrigger ("skill");
+	}
+
+		public void idle2() {
+		animator.SetTrigger ("idle2");
 	}
 }
