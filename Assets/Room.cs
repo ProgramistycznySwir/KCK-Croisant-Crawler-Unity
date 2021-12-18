@@ -71,10 +71,11 @@ public class Room : MonoBehaviour
 
     public Room Explore()
     {
-        if(room.IsExplored is true)
-            return this;
         // Show room:
         gameObject.SetActive(true);
+
+        if(room.IsExplored is true)
+            return this;
         room.IsExplored = true;
 
         if(room.IsDangerous)
