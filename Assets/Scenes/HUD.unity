@@ -2719,7 +2719,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hero: {fileID: 45329457}
   hero_map: {fileID: 37756480}
-  mapView__: {fileID: 554855698}
   floorPrefab: {fileID: 7499952623486321368, guid: 332ac162a9e92849aade9d0d3ae1542d, type: 3}
   mapSize: {x: 6, y: 6}
   roomCount: 24
@@ -4237,7 +4236,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: ecf759a67aa784081a1bc0f71a11843e, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -4245,7 +4244,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1497652743
@@ -4547,7 +4546,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.042654, y: 1}
+    m_SensorSize: {x: 2.165725, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
