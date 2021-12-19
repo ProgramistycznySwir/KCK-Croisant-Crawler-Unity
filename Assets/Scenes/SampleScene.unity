@@ -299,6 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49da150128daf0d8aa3f5d242dc2d8bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hero: {fileID: 0}
 --- !u!1 &91856724
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,7 +648,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a641b9c523d912a18a96ff3b55e516a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hero: {fileID: 37756481}
+  hero: {fileID: 0}
+  hero_map: {fileID: 0}
+  mapView__: {fileID: 0}
   floorPrefab: {fileID: 7499952623486321368, guid: 332ac162a9e92849aade9d0d3ae1542d, type: 3}
   mapSize: {x: 6, y: 6}
   roomCount: 24
@@ -1371,8 +1374,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576b428183cd47e0ea639dce13ea4709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hero: {fileID: 37756481}
-  healthBar: {fileID: 1529289218}
-  expBar: {fileID: 1929306880}
+  hero: {fileID: 0}
+  healthBar: {fileID: 0}
+  expBar: {fileID: 0}
   text_HP: {fileID: 1412264326}
-  text_XP: {fileID: 1936226540}
+  text_XP: {fileID: 0}
