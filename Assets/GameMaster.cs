@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Croisant_Crawler.UnityExtensions;
 
 public class GameMaster : MonoBehaviour
@@ -45,16 +46,20 @@ public class GameMaster : MonoBehaviour
         
     }
 
-    public static void StartFight()
+    public static void StartFight(Croisant_Crawler.Core.Room room)
     {
         ViewManager.instance.View_Open(ViewManager.View.Fight);
+        FightManager.instance.StartFight(room.distanceFromStart);
         // mapView.gameObject.SetActive(false);
         // fightView.gameObject.SetActive(true);
     }
 
-    public static void EndFight()
+    public static void EndFight(FightManager.FightResult fightResult)
     {
-        ViewManager.instance.View_Open(ViewManager.View.Map);
+        if(fightResult is FightManager.FightResult.Victory)
+            ViewManager.instance.View_Open(ViewManager.View.Map);
+        else if(fightResult is FightManager.FightResult.TPK)
+            SceneManager.LoadScene("GameStart");
         // mapView.gameObject.SetActive(true);
         // fightView.gameObject.SetActive(false);
     }
