@@ -17,7 +17,7 @@ public class ViewManager : MonoBehaviour
     public Transform fightView__;
 
 
-    public enum View { Map, HeroTab, Fight }
+    public enum View { Map, HeroTab, Fight, QuitMenu }
     private readonly HashSet<View> rootViews = new() { View.Map, View.Fight };
     private readonly Stack<(View view, Transform transform)> viewStack = new();
 
@@ -42,6 +42,13 @@ public class ViewManager : MonoBehaviour
             else
                 View_Open(View.HeroTab);
         }
+        else if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(rootViews.Contains(CurrentView.view))
+                View_Open(View.QuitMenu);
+            else
+                View_Return();
+        }
     }
     public void View_Open(View view)
     {
@@ -49,6 +56,8 @@ public class ViewManager : MonoBehaviour
             return;
         if(rootViews.Contains(view))
             viewStack.Clear();
+        // if(viewStack.Any(item => item.view == view))
+        //     return;
         viewStack.Push((view, views[view]));
 
         View_Render();

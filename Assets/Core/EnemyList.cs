@@ -24,9 +24,14 @@ namespace Croisant_Crawler.Core
 
         public static void LoadFromJson()
         {
-            Enemies = JsonUtility
-                    .FromJson<List<Stats_Prototype>>(((TextAsset)Resources.Load(ResourceName)).text)
-                    .ToDictionary(item => item.Name);
+            TextAsset jasonFile = (TextAsset)Resources.Load(ResourceName);
+            var enemyData = JsonUtility.FromJson<EnemyData>(jasonFile.text);
+            var enemyList = enemyData.EnemyList;
+            Enemies = enemyList.ToDictionary(item => item.Name);
+            // Enemies = JsonUtility
+            //         .FromJson<EnemyData>(jasonFile.text)
+            //         .EnemyList
+            //         .ToDictionary(item => item.Name);
         }
             // => Enemies = JsonSerializer
             //         .Deserialize<List<Stats_Prototype>>(File.ReadAllText(Filename))
@@ -34,11 +39,13 @@ namespace Croisant_Crawler.Core
 
         public static void DEBUG_CreateExampleFile()
         {
-            List<Stats_Prototype> list = new();
-            list.Add(new Stats_Prototype());
-            list.Add(new Stats_Prototype());
+            EnemyData enemyData = new();
+            // List<Stats_Prototype> list = new();
+            enemyData.EnemyList = new Stats_Prototype[4];
+            enemyData.EnemyList[0] = new Stats_Prototype();
+            enemyData.EnemyList[1] = new Stats_Prototype();
 
-            File.WriteAllText("Res/enemies_example.json", JsonUtility.ToJson(list));
+            File.WriteAllText("enemies_example.json", JsonUtility.ToJson(enemyData, true));
         }
     }
 }

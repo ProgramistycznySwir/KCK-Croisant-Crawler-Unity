@@ -9,6 +9,8 @@ public class FightManager : MonoBehaviour
     public static FightManager instance { get; private set; }
     public FightManager() => instance = this;
 
+    public enum FightResult { Victory, TPK }
+
     public Fight fight { get; private set; }
     public Hero hero;
 
@@ -16,18 +18,6 @@ public class FightManager : MonoBehaviour
     public Transform[] enemySockets;
     public List<Enemy> enemies;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void StartFight(int distanceFromStart)
     {
@@ -38,5 +28,10 @@ public class FightManager : MonoBehaviour
                     .GetComponent<Enemy>()
                     .Init(fight.enemies[i]));
         
+    }
+
+    public void OnAttackEnemy(int index)
+    {
+        Debug.Log(index);
     }
 }

@@ -6,25 +6,29 @@ using System.Threading.Tasks;
 
 namespace Croisant_Crawler.Core
 {
+    /// Added System.SerializableAttribute
+    ///  and changed every property of this class to field cause otherwise Unity does not recognize them in JsonSerialization :)
+    ///  This smile at the end is smile of someone devoid of emotion at the end of 2 hours-long debugging session.
+    [System.Serializable]
     public class Stats_Prototype
     {
         //public int Level { get; set; }
-        public string Name { get; set; }
+        public string Name;
 
-        public virtual float Base_Vit { get; set; }
-        public virtual float Level_Vit { get; set; }
+        public float Base_Vit;
+        public float Level_Vit;
 
-        public virtual float Base_Str { get; set; }
-        public virtual float Level_Str { get; set; }
+        public float Base_Str;
+        public float Level_Str;
 
-        public virtual float Base_Agi { get; set; }
-        public virtual float Level_Agi { get; set; }
+        public float Base_Agi;
+        public float Level_Agi;
 
-        public virtual float Base_Def { get; set; }
-        public virtual float Level_Def { get; set; }
+        public float Base_Def;
+        public float Level_Def;
 
-        public virtual float Base_Arm { get; set; }
-        public virtual float Level_Arm { get; set; }
+        public float Base_Arm;
+        public float Level_Arm;
 
         public Stats GenerateStats(int level)
             => new Stats(name: Name,

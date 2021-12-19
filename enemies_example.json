@@ -1,0 +1,56 @@
+{
+    "EnemyList": [
+        {
+            "Name": "",
+            "Base_Vit": 0.0,
+            "Level_Vit": 0.0,
+            "Base_Str": 0.0,
+            "Level_Str": 0.0,
+            "Base_Agi": 0.0,
+            "Level_Agi": 0.0,
+            "Base_Def": 0.0,
+            "Level_Def": 0.0,
+            "Base_Arm": 0.0,
+            "Level_Arm": 0.0
+        },
+        {
+            "Name": "",
+            "Base_Vit": 0.0,
+            "Level_Vit": 0.0,
+            "Base_Str": 0.0,
+            "Level_Str": 0.0,
+            "Base_Agi": 0.0,
+            "Level_Agi": 0.0,
+            "Base_Def": 0.0,
+            "Level_Def": 0.0,
+            "Base_Arm": 0.0,
+            "Level_Arm": 0.0
+        },
+        {
+            "Name": "",
+            "Base_Vit": 0.0,
+            "Level_Vit": 0.0,
+            "Base_Str": 0.0,
+            "Level_Str": 0.0,
+            "Base_Agi": 0.0,
+            "Level_Agi": 0.0,
+            "Base_Def": 0.0,
+            "Level_Def": 0.0,
+            "Base_Arm": 0.0,
+            "Level_Arm": 0.0
+        },
+        {
+            "Name": "",
+            "Base_Vit": 0.0,
+            "Level_Vit": 0.0,
+            "Base_Str": 0.0,
+            "Level_Str": 0.0,
+            "Base_Agi": 0.0,
+            "Level_Agi": 0.0,
+            "Base_Def": 0.0,
+            "Level_Def": 0.0,
+            "Base_Arm": 0.0,
+            "Level_Arm": 0.0
+        }
+    ]
+}
