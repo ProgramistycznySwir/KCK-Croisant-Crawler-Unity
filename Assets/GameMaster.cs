@@ -1,17 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Croisant_Crawler.UnityExtensions;
 
 public class GameMaster : MonoBehaviour
 {
+    /// Singleton.
+    public static GameMaster instance { get; private set; }
+    public GameMaster() => instance = this;
+
     public Hero hero;
     public Hero_Map hero_map;
-
-    public Transform mapView__;
-    public static Transform mapView { get; private set; }
-    // public Transform fightView__;
-    // public static Transform fightView { get; private set; }
 
     public static Croisant_Crawler.Core.Floor currentFloorData { get; private set; }
     public static Floor currentFloor { get; private set; }
@@ -21,12 +22,6 @@ public class GameMaster : MonoBehaviour
     public UnityEngine.Vector2Int mapSize = new UnityEngine.Vector2Int(6, 6);
     public int roomCount = 24;
 
-    void Awake()
-    {
-        mapView = mapView__;
-        // fightView = fightView__;
-    }
-
     void Start()
     {
         currentFloorData = new(
@@ -34,7 +29,7 @@ public class GameMaster : MonoBehaviour
                 level: 1,
                 roomCount: roomCount);
 
-        currentFloor = Object.Instantiate(floorPrefab, mapView)
+        currentFloor = UnityEngine.Object.Instantiate(floorPrefab, ViewManager.instance.views[ViewManager.View.Map])
                 .GetComponent<Floor>()
                 .Init(currentFloorData);
 
@@ -52,13 +47,15 @@ public class GameMaster : MonoBehaviour
 
     public static void StartFight()
     {
-        mapView.gameObject.SetActive(false);
+        ViewManager.instance.View_Open(ViewManager.View.Fight);
+        // mapView.gameObject.SetActive(false);
         // fightView.gameObject.SetActive(true);
     }
 
     public static void EndFight()
     {
-        mapView.gameObject.SetActive(true);
+        ViewManager.instance.View_Open(ViewManager.View.Map);
+        // mapView.gameObject.SetActive(true);
         // fightView.gameObject.SetActive(false);
     }
 }
