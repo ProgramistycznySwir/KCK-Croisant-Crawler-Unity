@@ -15,7 +15,6 @@ public class EnemySelector : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1"))
         {
-            Debug.Log("I swear i'm working");
             Vector3 mousePos = Input.mousePosition;
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mousePos);
             RaycastHit2D hit = Physics2D.CircleCast(

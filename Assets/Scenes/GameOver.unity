@@ -425,7 +425,7 @@ MonoBehaviour:
 
     0
 
-    0'
+'
 --- !u!222 &475528060
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -984,10 +984,7 @@ MonoBehaviour:
 
     Explored rooms:
 
-    defeated enemies:
-
-    highest
-    level:'
+    Defeated enemies:'
 --- !u!222 &1052822894
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1267,6 +1264,7 @@ GameObject:
   - component: {fileID: 2053477641}
   - component: {fileID: 2053477640}
   - component: {fileID: 2053477644}
+  - component: {fileID: 2053477645}
   m_Layer: 5
   m_Name: Game_start_canvas
   m_TagString: Untagged
@@ -1374,3 +1372,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 1
+--- !u!114 &2053477645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053477639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53a98e5f23ec141b493020a9f0495145, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 475528059}

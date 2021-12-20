@@ -32,10 +32,6 @@ public class Hero_Map : MonoBehaviour
 
     public void Move(Croisant_Crawler.Data.Vector2Int dirrection)
     {
-        // DEBUG:
-        hero.stats.ReceiveExp(500);
-
-
         var nextPos = hero.stats.position + dirrection;
         var newRoomData = GameMaster.currentFloorData.rooms[hero.stats.position].connections
                 .Where(room => room.position == nextPos)

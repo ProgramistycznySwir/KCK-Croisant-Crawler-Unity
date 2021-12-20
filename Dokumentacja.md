@@ -34,7 +34,9 @@ Uważamy, że nasza gra spełnia większość założeń przedstawionych w wymag
 
 <style>
 body{
-    font-family: Consolas, Comic Sans;
+    /* That Comic Sans is here in case you don't have my favourite font :< */
+    /* font-family: Consolas, Comic Sans; */
+    font-family: Consolas;
     margin-left: 10%;
     margin-right: 10%;
 }
