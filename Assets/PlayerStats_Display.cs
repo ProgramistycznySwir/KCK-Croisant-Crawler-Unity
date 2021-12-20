@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Croisant_Crawler.Core;
+using Croisant_Crawler.Data;
 
 public class PlayerStats_Display : MonoBehaviour
 {
@@ -16,17 +17,25 @@ public class PlayerStats_Display : MonoBehaviour
     void Start()
     {
         hero.stats.HP_OnChange += UpdateHP;
+        hero.stats.Exp_OnChange += UpdateExp;
         UpdateHP(hero.stats);
+        UpdateExp(hero.stats);
     }
 
     public void UpdateHP(Stats stats)
     {
         text_HP.text = $"HP: {stats.HP.value} / {stats.HP.range.max}";
         healthBar.fillAmount = stats.HP.Percent;
-        //TODO currently XP just a mockup, need to make it properly count XP
-        expBar.fillAmount  = hero.stats.Exp / (PlayerStats.ExpPerLevel / 2) * hero.stats.Lvl * (hero.stats.Lvl);
-        text_XP.text = $"XP: {hero.stats.Exp} / {(PlayerStats.ExpPerLevel / 2) * hero.stats.Lvl * (hero.stats.Lvl)}";
-
     }
 
+    public void UpdateExp(PlayerStats stats)
+    {
+        expBar.fillAmount = new ValueInRangeInt(
+                new Croisant_Crawler.Data.RangeInt(
+                        PlayerStats.ExpFormula(stats.Lvl),
+                        PlayerStats.ExpFormula(stats.Lvl+1)),
+                stats.Exp)
+                .Percent;
+        text_XP.text = $"  Exp: {stats.Exp} / {PlayerStats.ExpFormula(stats.Lvl+1)}";
+    }
 }
