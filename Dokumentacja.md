@@ -30,3 +30,12 @@ Unity to świetne narzędzie do robienia gier kiedy robimy je w Unity od począt
 
 ## 8 Samoocena
 Uważamy, że nasza gra spełnia większość założeń przedstawionych w wymaganiach projektowych. Posiada animacje i możliwość dostosowania rozdzielczości ekranu. W trakcie gry można przenosić się między widokiem mapy i statystyk zarówno korzystając z klawiatury jak i myszy.
+
+
+<style>
+body{
+    font-family: Consolas, Comic Sans;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+</style>
