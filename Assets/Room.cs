@@ -80,7 +80,7 @@ public class Room : MonoBehaviour
 
         if(room.IsDangerous)
         {
-            GameMaster.StartFight(room);
+            GameMaster.instance.StartFight(room);
 
             // Map_View.DisplayPrompt("You've encountered enemies in this room, press [enter] to start combat.");
             // Map_View.AlertPlayer(player, "[ENTER]");

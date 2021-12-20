@@ -25,6 +25,7 @@ public class GameMaster : MonoBehaviour
 
     void Start()
     {
+        Croisant_Crawler.Core.RunSummary.Reset();
         currentFloorData = new(
                 mapSize: mapSize.ToData(),
                 level: 1,
@@ -46,7 +47,7 @@ public class GameMaster : MonoBehaviour
         
     }
 
-    public static void StartFight(Croisant_Crawler.Core.Room room)
+    public void StartFight(Croisant_Crawler.Core.Room room)
     {
         ViewManager.instance.View_Open(ViewManager.View.Fight);
         FightManager.instance.StartFight(room.distanceFromStart);
@@ -54,12 +55,12 @@ public class GameMaster : MonoBehaviour
         // fightView.gameObject.SetActive(true);
     }
 
-    public static void EndFight(FightManager.FightResult fightResult)
+    public void EndFight(FightManager.FightResult fightResult)
     {
         if(fightResult is FightManager.FightResult.Victory)
             ViewManager.instance.View_Open(ViewManager.View.Map);
         else if(fightResult is FightManager.FightResult.TPK)
-            SceneManager.LoadScene("GameStart");
+            SceneManager.LoadScene("GameOver");
         // mapView.gameObject.SetActive(true);
         // fightView.gameObject.SetActive(false);
     }
