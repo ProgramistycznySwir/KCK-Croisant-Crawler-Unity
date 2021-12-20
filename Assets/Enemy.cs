@@ -51,6 +51,8 @@ public class Enemy : MonoBehaviour
 
     public Sprite GetEnemySprite(string name)
         => name switch {
+            "Goblin" => enemySprites[0],
+            "Bandit" => enemySprites[2],
             "Skeleton" => enemySprites[3],
             _ => square
         };

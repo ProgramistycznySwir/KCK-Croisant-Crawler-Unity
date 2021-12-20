@@ -22,6 +22,7 @@ public class FightManager : MonoBehaviour
 
     public void StartFight(int distanceFromStart)
     {
+        CleanUp();
         fight = new Fight(distanceFromStart);
         enemies = new List<Enemy>();
 
