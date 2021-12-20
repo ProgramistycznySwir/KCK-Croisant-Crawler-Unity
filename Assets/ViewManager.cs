@@ -15,6 +15,7 @@ public class ViewManager : MonoBehaviour
     public Transform mapView__;
     public Transform heroTabView__;
     public Transform fightView__;
+    public Transform quitMenuView__;
 
 
     public enum View { Map, HeroTab, Fight, QuitMenu }
@@ -28,6 +29,7 @@ public class ViewManager : MonoBehaviour
         views.Add(View.Map, mapView__);
         views.Add(View.HeroTab, heroTabView__);
         views.Add(View.Fight, fightView__);
+        views.Add(View.QuitMenu, quitMenuView__);
 
         viewStack.Push((View.Map, views[View.Map]));
         View_Render();
@@ -68,6 +70,8 @@ public class ViewManager : MonoBehaviour
         => View_Open(View.HeroTab);
     public void View_Open_Fight()
         => View_Open(View.Fight);
+    public void View_Open_QuitMenu()
+        => View_Open(View.QuitMenu);
     public void View_Return()
     {
         if(viewStack.Count <= 1)
