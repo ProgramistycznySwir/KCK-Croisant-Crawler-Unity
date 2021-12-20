@@ -26,10 +26,10 @@ public class PlayerStats_Menu : MonoBehaviour
         UpdateAgi(hero.stats);
         UpdateVit(hero.stats);
         UpdateStr(hero.stats);
+        UpdateLvl();
+        UpdateSkillPoints();
+        UpdateExp(hero.stats);
         //TODO update statystyk przy zmianie widoku
-        text_XP_stat.text = $"XP: {hero.stats.Exp} / {(PlayerStats.ExpPerLevel / 2) * hero.stats.Lvl * (hero.stats.Lvl - 1)}";
-        text_LVL_stat.text = $"LVL: {hero.stats.Lvl}";
-        text_SkillPoint_stat.text = $"Skill Points left:    {hero.stats.SkillPoints}";
     }
       
        // TODO: update statystyk
@@ -61,5 +61,18 @@ public class PlayerStats_Menu : MonoBehaviour
     public void UpgradeStr()
     {
         hero.stats.UpgradeStr();
+    }
+
+        public void UpdateExp(Stats stats)
+    {
+        text_XP_stat.text = $"XP: {hero.stats.Exp} / {(PlayerStats.ExpPerLevel / 2) * hero.stats.Lvl * (hero.stats.Lvl - 1)}";
+    }
+    public void UpdateLvl()
+    {
+        text_LVL_stat.text = $"LVL: {hero.stats.Lvl}";
+    }
+        public void UpdateSkillPoints()
+    {
+        text_SkillPoint_stat.text = $"Skill Points left:    {hero.stats.SkillPoints}";
     }
 }

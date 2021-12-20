@@ -24,8 +24,8 @@ public class PlayerStats_Display : MonoBehaviour
         text_HP.text = $"HP: {stats.HP.value} / {stats.HP.range.max}";
         healthBar.fillAmount = stats.HP.Percent;
         //TODO currently XP just a mockup, need to make it properly count XP
-        expBar.fillAmount  = hero.stats.Exp / (PlayerStats.ExpPerLevel / 2) * hero.stats.Lvl * (hero.stats.Lvl - 1);
-        text_XP.text = $"XP: {hero.stats.Exp} / {(PlayerStats.ExpPerLevel / 2) * hero.stats.Lvl * (hero.stats.Lvl - 1)}";
+        expBar.fillAmount  = hero.stats.Exp / (PlayerStats.ExpPerLevel / 2) * hero.stats.Lvl * (hero.stats.Lvl);
+        text_XP.text = $"XP: {hero.stats.Exp} / {(PlayerStats.ExpPerLevel / 2) * hero.stats.Lvl * (hero.stats.Lvl)}";
 
     }
 
