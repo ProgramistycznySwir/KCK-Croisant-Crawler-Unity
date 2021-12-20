@@ -77,24 +77,11 @@ public class Room : MonoBehaviour
         if(room.IsExplored is true)
             return this;
         room.IsExplored = true;
+        Croisant_Crawler.Core.RunSummary.IncExploredRooms();
 
         if(room.IsDangerous)
         {
             GameMaster.instance.StartFight(room);
-
-            // Map_View.DisplayPrompt("You've encountered enemies in this room, press [enter] to start combat.");
-            // Map_View.AlertPlayer(player, "[ENTER]");
-            // Wait();
-
-            // Map_View.SetActive(false);
-            // FightResult fightResult = Fight_Game.StartFight(player, newRoom);
-            // if(fightResult is FightResult.TPK)
-            // {
-            //     Summary(player);
-            //     return;
-            // }
-            // newRoom.IsDangerous = false;
-            // Map_View.ReRenderMapView(floor, player);
         }
 
         return this;
